@@ -8,7 +8,6 @@ package frc.robot;
 import org.a05annex.frc.A05Constants;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.a05annex.frc.subsystems.PhotonCameraWrapper;
-import org.a05annex.util.AngleConstantD;
 import org.a05annex.util.AngleD;
 import org.a05annex.util.AngleUnit;
 import org.photonvision.PhotonCamera;
@@ -26,7 +25,7 @@ public final class Constants extends A05Constants
     public static final class CAN_Devices {
         public static final int
             // Non-Drive Motors
-            SAMPLE_MOTOR = 14;
+            COLLECTOR_MOTOR = 14;
     }
 
     //TODO: Set which cameras you have
