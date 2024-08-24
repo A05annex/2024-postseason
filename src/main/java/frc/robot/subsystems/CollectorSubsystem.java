@@ -18,7 +18,7 @@ public class CollectorSubsystem extends SubsystemBase {
     private final double posKp = 0.0, posKi = 0.0, posKiZone = 0.0, posKff = 0.0;
 
     // Declare PID constants for speed (rpm) control
-    private final double rpmKp = 0.0, rpmKi = 0.0, rpmKiZone = 0.0, rpmKff = 0.000188;
+    private final double rpmKp = 0.0001, rpmKi = 0.0000002, rpmKiZone = 75.0, rpmKff = 0.000188;
 
     // Declare min and max soft limits and where the motor thinks it starts
     private final Double minPosition = null, maxPosition = null, startPosition = 0.0;
@@ -76,7 +76,7 @@ public class CollectorSubsystem extends SubsystemBase {
     }
 
     private double calcFF(double rpm) {
-        return 1.5357E-12 * Math.pow(rpm, 2.0) + -1.3564E-8 * rpm + 0.0002211;
+        return 1.5357E-12 * Math.pow(rpm, 2.0) + -1.3564E-8 * Math.abs(rpm) + 0.0002211;
     }
 
 }

@@ -10,8 +10,12 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import frc.robot.commands.BeamBreakIntakeCommand;
+import frc.robot.commands.CenterNoteCommand;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.SpeakerShootCommad;
 import frc.robot.subsystems.CollectorSubsystem;
+import frc.robot.subsystems.ShooterSubsystem;
 import org.a05annex.frc.A05RobotContainer;
 import org.a05annex.frc.subsystems.SpeedCachedSwerve;
 
@@ -46,6 +50,7 @@ public class RobotContainer extends A05RobotContainer
 
         driveSubsystem.setDefaultCommand(driveCommand);
 
+        CollectorSubsystem.getInstance().setDefaultCommand(new CenterNoteCommand());
 
         //TODO: add auto
 
@@ -67,10 +72,12 @@ public class RobotContainer extends A05RobotContainer
 
         driveBack.onTrue(new InstantCommand(navx::initializeHeadingAndNav)); // Reset the NavX field relativity
 
-        driveA.onTrue(new InstantCommand(CollectorSubsystem.getInstance()::intake));
-        driveB.onTrue(new InstantCommand(CollectorSubsystem.getInstance()::stop));
+        driveA.onTrue(new SpeakerShootCommad());
+        driveB.onTrue(new InstantCommand(ShooterSubsystem.getInstance()::stop)).onTrue(new InstantCommand(CollectorSubsystem.getInstance()::stop));
 
         driveY.onTrue(new InstantCommand(CollectorSubsystem.getInstance()::incrementKff));
         driveX.onTrue(new InstantCommand(CollectorSubsystem.getInstance()::decrementKff));
+
+        driveRightBumper.whileTrue(new BeamBreakIntakeCommand());
     }
 }

@@ -5,6 +5,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import org.a05annex.frc.A05Constants;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.a05annex.frc.subsystems.PhotonCameraWrapper;
@@ -25,7 +26,9 @@ public final class Constants extends A05Constants
     public static final class CAN_Devices {
         public static final int
             // Non-Drive Motors
-            COLLECTOR_MOTOR = 14;
+            COLLECTOR_MOTOR = 14,
+            LEFT_SHOOTER_MOTOR = 9,
+            RIGHT_SHOOTER_MOTOR = 12;
     }
 
     //TODO: Set which cameras you have
@@ -35,6 +38,8 @@ public final class Constants extends A05Constants
 
     //TODO: declare camera name
     public static final PhotonCameraWrapper CAMERA = new PhotonCameraWrapper(new PhotonCamera("IMX219"), 1.0, new AngleD(AngleUnit.DEGREES,0.0));
+
+    public static final DigitalInput BEAMBREAK = new DigitalInput(8);
 
     // kP for keeping drive at the same orientation
     public static double DRIVE_ORIENTATION_kP = 1.2;
