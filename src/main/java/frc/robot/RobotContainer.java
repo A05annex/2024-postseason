@@ -10,10 +10,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
-import frc.robot.commands.BeamBreakIntakeCommand;
-import frc.robot.commands.CenterNoteCommand;
-import frc.robot.commands.DriveCommand;
-import frc.robot.commands.SpeakerShootCommad;
+import frc.robot.commands.*;
 import frc.robot.subsystems.CollectorSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 import org.a05annex.frc.A05RobotContainer;
@@ -79,5 +76,7 @@ public class RobotContainer extends A05RobotContainer
         driveX.onTrue(new InstantCommand(CollectorSubsystem.getInstance()::decrementKff));
 
         driveRightBumper.whileTrue(new BeamBreakIntakeCommand());
+
+        driveLeftBumper.whileTrue(new AprilTagPositionCommand(driveXbox, Constants.getDriver(), Constants.CAMERA, 1.0,0.0,"Test Tag"));
     }
 }

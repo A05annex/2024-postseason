@@ -67,8 +67,8 @@ public final class Constants extends A05Constants
      * These settings are loaded into {@link #ROBOT_SETTINGS_LIST} during {@link Robot#robotInit()}
      */
     public static final RobotSettings[] ROBOT_SETTINGS = {
-            new RobotSettings(0, "Competition", 0.5461, 0.5461, 2.700, 1.161,
-                    2.723, 2.448, 1.026,0.9650),
+            new RobotSettings(0, "Competition", 0.5461, 0.5461, 5.0897, 0.3130,
+                    0.4924, 2.5050, 1.026,0.9650),
             new RobotSettings(1, "Practice", 0.5969, 0.5969, 5.240, 5.654,
                     0.969, 5.039, 1.026, 0.9164)
     };
@@ -82,8 +82,7 @@ public final class Constants extends A05Constants
     };
 
     public static void setAprilTagPositionParametersDictionary() {
-        aprilTagSetDictionary.put("Field Heading Example", new AprilTagSet(new int[]{1}, new int[]{2}, 1.0, new AngleD(AngleUnit.DEGREES, 90), new AngleD(AngleUnit.DEGREES, -90.0)));
-        aprilTagSetDictionary.put("Face Target Example", new AprilTagSet(new int[]{3}, new int[]{4}, 1.0));
+        aprilTagSetDictionary.put("Test Tag", new AprilTagSet(new int[]{1}, new int[]{2}, 1.0, new AngleD(AngleUnit.DEGREES, 0.0), new AngleD(AngleUnit.DEGREES, 0.0)));
     }
 
 
